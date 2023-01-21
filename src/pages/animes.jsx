@@ -6,10 +6,15 @@ import { useParams } from "react-router-dom";
 
 const Animes = () => {
   const { type } = useParams();
-  console.log(type);
+  let typeList = type;
+  if (type) {
+  } else {
+    typeList = "";
+  }
+
   return (
     <div>
-      <AnimeList type={type}></AnimeList>
+      <AnimeList type={typeList}></AnimeList>
     </div>
   );
 };

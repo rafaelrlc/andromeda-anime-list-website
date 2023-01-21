@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://api.jikan.moe/v4/anime";
+const BASE_URL = "https://kitsu.io/api/edge/anime";
 
 const api = axios.create({
   baseURL: BASE_URL,

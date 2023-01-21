@@ -1,25 +1,30 @@
 import React from "react";
-import "./header.css";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { FaSistrix } from "react-icons/fa";
-const Header = () => {
-  const [animeSearch, setAnimeSearch] = useState("");
 
+import classes from "./header.module.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
+import { useRef } from "react";
+import api from "../../api/api";
+
+const Header = () => {
+  const navigate = useNavigate();
+  const [animeSearch, setAnimeSearch] = useState("");
   const searchAnime = (e) => {
     e.preventDefault();
-
     if (animeSearch === "") {
       return;
     }
+
+    //navigate("");
   };
   return (
-    <nav className="header">
-      <div className="headerLeft">
-        <div className="logo">
+    <nav className={classes.header}>
+      <div className={classes.headerLeft}>
+        <div className={classes.logo}>
           <Link to="/">
             <img
-              className="header__icon"
+              className={classes.header__icon}
               src="https://cdn.discordapp.com/attachments/886688344363388958/1066155147878735923/447-4477229_winter-anime-girl-icon-hd-png-download.png"
             />
           </Link>
@@ -27,19 +32,23 @@ const Header = () => {
         </div>
 
         <Link to="animes/popular" style={{ textDecoration: "none" }}>
-          <span>Popular</span>
+          <span>POPULAR</span>
         </Link>
         <Link to="animes/trending" style={{ textDecoration: "none" }}>
-          <span>Trending</span>
+          <span>TRENDING</span>
         </Link>
         <Link to="animes/upcoming" style={{ textDecoration: "none" }}>
-          <span>Recent Episodes</span>
+          <span>UPCOMING</span>
         </Link>
       </div>
-      <form className="input_search" onSubmit={searchAnime}>
-        <input placeholder="Buscar..."></input>
+      <form className={classes.input_search} onSubmit={searchAnime}>
+        <input
+          placeholder="Buscar..."
+          onChange={(e) => setAnimeSearch(e.target.value)}
+          value={animeSearch}
+        ></input>
         <button type="submit">
-          <FaSistrix></FaSistrix>
+          <FaSearch />
         </button>
       </form>
     </nav>
