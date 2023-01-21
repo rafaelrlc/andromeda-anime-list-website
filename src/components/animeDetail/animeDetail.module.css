@@ -1,0 +1,50 @@
+.top_card {
+  display: flex;
+  gap: 3rem;
+  padding: 4rem;
+  color: white;
+  align-self: flex-start;
+  justify-content: center;
+}
+
+.top_card img {
+  border-radius: 0.75rem;
+  box-shadow: rgba(0, 0, 0, 0.86) 0px 10px 20px 3px;
+  height: 365px;
+  width: 255px;
+}
+
+.title {
+  display: flex;
+  margin: 0;
+}
+
+.info {
+  background-color: rgb(69, 69, 69);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.info h1 {
+  color: white;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 3rem;
+  width: 60%;
+}
+.info p {
+  margin-top: 1.5rem;
+  width: 80%;
+}
+
+.info h3 {
+  margin-top: 1.5rem;
+}
+
+.buttom_card {
+  display: flex;
+  gap: 3rem;
+  padding: 4rem;
+  color: white;
+  align-self: flex-start;
+  justify-content: center;
+}
