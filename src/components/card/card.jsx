@@ -1,10 +1,9 @@
 import classes from "./card.module.css";
 import { Link } from "react-router-dom";
-
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 const Cards = ({ anime }) => {
-  console.log(anime.attributes.startDate);
   return (
-    <>
+    <li>
       <Link
         to={`/anime/${anime.id}`}
         style={{ textDecoration: "none", color: "white" }}
@@ -27,7 +26,7 @@ const Cards = ({ anime }) => {
           </div>
         </div>
       </Link>
-    </>
+    </li>
   );
 };
 

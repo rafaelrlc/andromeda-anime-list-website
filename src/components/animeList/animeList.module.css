@@ -18,3 +18,10 @@
   justify-content: center;
   margin: 0;
 }
+
+.list__cards h1 {
+  color: white;
+}
+.pag li {
+  color: white;
+}

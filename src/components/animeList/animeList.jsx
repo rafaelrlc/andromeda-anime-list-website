@@ -2,16 +2,19 @@ import React, { Fragment, useEffect, useState } from "react";
 import classes from "./animeList.module.css";
 import Cards from "../card/card";
 import api from "../../assets/api/api";
-import axios from "axios";
 import Pagination from "@mui/material/Pagination";
+import { Box } from "@mui/material";
 import Stack from "@mui/material/Stack";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const AnimeList = ({ listingConfig }) => {
   const [animesDisplay, setAnimesDisplay] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(10);
 
   const handleChange = (event, value) => {
+    window.scrollTo(0, 0);
     setPage(value);
   };
 
@@ -30,33 +33,53 @@ const AnimeList = ({ listingConfig }) => {
     });
 
     const data = response.data.data;
-    console.log(data);
+    const n_pages = Math.round(response.data.meta.count / 20);
+
+    setPageCount(n_pages);
     setAnimesDisplay(data);
     setIsLoading(false);
   };
 
   useEffect(() => {
-    fetchAnimes(20, 0);
-  }, [listingConfig]);
+    setAnimesDisplay([]);
+    fetchAnimes(20, page * 10 - 10);
+  }, [listingConfig, page]);
 
   return (
     <Fragment>
       <div className={classes.movie__list}>
         <h2 className={classes.list__title}>ANIMES</h2>
-        <div className={classes.list__cards}>
+        <ul className={classes.list__cards}>
+          {isLoading && <CircularProgress />}
           {animesDisplay.map((anime) => (
             <Cards anime={anime} isLoading={isLoading} key={anime.id} />
           ))}
-        </div>
+        </ul>
       </div>
-      <Stack spacing={2}>
-        <Pagination
-          count={10}
-          page={page}
-          onChange={handleChange}
-          color={`primary`}
-        />
-      </Stack>
+      {!isLoading && (
+        <Box
+          justifyContent={"center"}
+          alignItems={"center"}
+          display={"flex"}
+          marginTop={"3rem"}
+          marginBottom={"2rem"}
+          color={"white"}
+        >
+          <Stack spacing={2}>
+            <Pagination
+              count={pageCount}
+              page={page}
+              onChange={handleChange}
+              color={"primary"}
+              style={{
+                borderRadius: "0.5rem",
+                backgroundColor: "white",
+                padding: "0.25rem",
+              }}
+            />
+          </Stack>
+        </Box>
+      )}
     </Fragment>
   );
 };

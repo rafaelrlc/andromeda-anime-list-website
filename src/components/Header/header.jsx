@@ -35,8 +35,8 @@ const Header = () => {
           <h1>ANDROMEDA</h1>
         </div>
 
-        <Link to="animes/popular" style={{ textDecoration: "none" }}>
-          <span>POPULAR</span>
+        <Link to="animes/" style={{ textDecoration: "none" }}>
+          <span>ANIMES</span>
         </Link>
         <Link to="animes/trending" style={{ textDecoration: "none" }}>
           <span>TRENDING</span>
@@ -45,16 +45,18 @@ const Header = () => {
           <span>UPCOMING</span>
         </Link>
       </div>
-      <form className={classes.input_search} onSubmit={searchAnime}>
-        <input
-          placeholder="Buscar..."
-          onChange={(e) => setAnimeSearch(e.target.value)}
-          value={animeSearch}
-        ></input>
-        <button type="submit">
-          <FaSearch />
-        </button>
-      </form>
+      <div className={classes.headerLeft}>
+        <form className={classes.input_search} onSubmit={searchAnime}>
+          <input
+            placeholder="Buscar..."
+            onChange={(e) => setAnimeSearch(e.target.value)}
+            value={animeSearch}
+          ></input>
+          <button type="submit">
+            <FaSearch />
+          </button>
+        </form>
+      </div>
     </nav>
   );
 };

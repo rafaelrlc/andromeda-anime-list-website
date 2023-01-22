@@ -8,20 +8,20 @@
   margin: 1.25rem;
   padding: 0.5rem;
 }
+
 .logo {
   display: flex;
   text-align: center;
   justify-content: space-around;
   align-items: center;
-  background-color: rgb(40, 86, 224);
+  background-color: rgb(255, 255, 255);
   margin: 0.5rem;
-
+  border-radius: 1rem;
   padding-right: 1rem;
 }
 
 .logo h1 {
   color: rgb(255, 255, 255);
-
   font-weight: bold;
 }
 .logo img {
@@ -29,7 +29,8 @@
 }
 .header h1 {
   font-size: 2rem;
-  background-color: rgb(40, 86, 224);
+  background-color: rgb(255, 255, 255);
+  color: rgb(23, 61, 175);
 }
 .headerLeft,
 .headerRight {
@@ -45,7 +46,7 @@ a > span {
 }
 
 a > span:hover {
-  color: rgb(129, 130, 129);
+  color: rgb(197, 197, 197);
 }
 
 .header__icon {
