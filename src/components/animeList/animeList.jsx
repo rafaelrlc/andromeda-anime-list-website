@@ -1,11 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 import classes from "./animeList.module.css";
 import Cards from "../card/card";
-import api from "../../assets/api/api";
+import api from "../../api/api";
 import Pagination from "@mui/material/Pagination";
 import { Box } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Helmet } from "react-helmet";
 
 const AnimeList = ({ listingConfig }) => {
   const [animesDisplay, setAnimesDisplay] = useState([]);
@@ -28,16 +29,21 @@ const AnimeList = ({ listingConfig }) => {
 
     setIsLoading(true);
 
-    const response = await api.get("/anime", {
-      params: fetchParams,
-    });
+    try {
+      const response = await api.get("/anime", {
+        params: fetchParams,
+      });
+      const data = response.data.data;
+      const n_pages = Math.round(response.data.meta.count / 20);
 
-    const data = response.data.data;
-    const n_pages = Math.round(response.data.meta.count / 20);
-
-    setPageCount(n_pages);
-    setAnimesDisplay(data);
-    setIsLoading(false);
+      setPageCount(n_pages);
+      setIsLoading(false);
+      setAnimesDisplay(data);
+    } catch (err) {
+      console.log(err);
+      setIsLoading(false);
+      setAnimesDisplay([]);
+    }
   };
 
   useEffect(() => {
@@ -47,6 +53,11 @@ const AnimeList = ({ listingConfig }) => {
 
   return (
     <Fragment>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{listingConfig.title}</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className={classes.movie__list}>
         <h2 className={classes.list__title}>ANIMES</h2>
         <ul className={classes.list__cards}>

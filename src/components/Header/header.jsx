@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useRef } from "react";
-import api from "../../assets/api/api";
+import api from "../../api/api";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -34,18 +34,19 @@ const Header = () => {
           </Link>
           <h1>ANDROMEDA</h1>
         </div>
-
-        <Link to="animes/" style={{ textDecoration: "none" }}>
-          <span>ANIMES</span>
-        </Link>
-        <Link to="animes/trending" style={{ textDecoration: "none" }}>
-          <span>TRENDING</span>
-        </Link>
-        <Link to="animes/upcoming" style={{ textDecoration: "none" }}>
-          <span>UPCOMING</span>
-        </Link>
+        <div className={classes.options}>
+          <Link to="animes/" style={{ textDecoration: "none" }}>
+            <span>Home</span>
+          </Link>
+          <Link to="animes/trending" style={{ textDecoration: "none" }}>
+            <span>Trending</span>
+          </Link>
+          <Link to="animes/upcoming" style={{ textDecoration: "none" }}>
+            <span>Upcoming</span>
+          </Link>
+        </div>
       </div>
-      <div className={classes.headerLeft}>
+      <div className={classes.headerRight}>
         <form className={classes.input_search} onSubmit={searchAnime}>
           <input
             placeholder="Buscar..."

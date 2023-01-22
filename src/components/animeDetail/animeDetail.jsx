@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import api from "../../assets/api/api";
+import api from "../../api/api";
 import classes from "./animeDetail.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Box } from "@mui/material";
+import { Helmet } from "react-helmet";
 const AnimeDetails = ({ id }) => {
   const [detailedAnime, setDetailedAnime] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -13,6 +13,7 @@ const AnimeDetails = ({ id }) => {
     const response = await api.get(`/anime/${id}`);
     const data = response.data.data;
     console.log(data);
+
     setIsLoading(false);
     setDetailedAnime(data);
   };
@@ -23,6 +24,15 @@ const AnimeDetails = ({ id }) => {
 
   return (
     <Box>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>
+          {detailedAnime
+            ? detailedAnime.attributes.canonicalTitle
+            : "Loading..."}
+        </title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       {isLoading ? (
         <Box
           justifyContent={"center"}

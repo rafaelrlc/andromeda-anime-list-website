@@ -1,12 +1,11 @@
 .header {
   background-color: rgb(40, 86, 224);
-  align-items: center;
+
   display: flex;
   justify-content: space-between;
   font-family: Arial, Helvetica, sans-serif;
-  border-radius: 1rem;
-  margin: 1.25rem;
-  padding: 0.5rem;
+  border-radius: 0rem;
+  padding: 0.75rem;
 }
 
 .logo {
@@ -23,18 +22,36 @@
 .logo h1 {
   color: rgb(255, 255, 255);
   font-weight: bold;
-}
-.logo img {
-  margin: 0;
-}
-.header h1 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   background-color: rgb(255, 255, 255);
   color: rgb(23, 61, 175);
 }
+
+.header__icon {
+  width: 80px;
+  cursor: pointer;
+  border-radius: 3rem;
+  padding: 0.1rem;
+  width: 80px;
+}
+
+.options {
+  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.options span {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
 .headerLeft,
 .headerRight {
   display: flex;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -47,14 +64,6 @@ a > span {
 
 a > span:hover {
   color: rgb(197, 197, 197);
-}
-
-.header__icon {
-  width: 80px;
-  cursor: pointer;
-  border-radius: 3rem;
-  padding: 1rem;
-  width: 80px;
 }
 
 .input_search {

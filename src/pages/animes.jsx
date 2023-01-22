@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import api from "../assets/api/api";
 import AnimeList from "../components/animeList/animeList";
 import { useParams } from "react-router-dom";
 
@@ -15,6 +12,7 @@ const Animes = () => {
   const listingConfig = {
     func: "listingParams",
     type: typeList,
+    title: "Andromeda - Anime Website",
   };
 
   return (
