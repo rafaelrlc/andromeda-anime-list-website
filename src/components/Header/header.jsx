@@ -5,18 +5,22 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useRef } from "react";
-import api from "../../api/api";
+import api from "../../assets/api/api";
 
 const Header = () => {
   const navigate = useNavigate();
   const [animeSearch, setAnimeSearch] = useState("");
+
   const searchAnime = (e) => {
     e.preventDefault();
+
     if (animeSearch === "") {
       return;
     }
 
-    //navigate("");
+    setAnimeSearch("");
+
+    navigate(`/search/${animeSearch}`);
   };
   return (
     <nav className={classes.header}>

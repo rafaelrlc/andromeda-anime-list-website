@@ -4,17 +4,12 @@ import api from "../assets/api/api";
 import AnimeList from "../components/animeList/animeList";
 import { useParams } from "react-router-dom";
 
-const Animes = () => {
-  const { type } = useParams();
-  let typeList = type;
-  if (type) {
-  } else {
-    typeList = "";
-  }
+const AnimeSearch = () => {
+  const animeName = useParams();
 
   const listingConfig = {
-    func: "listingParams",
-    type: typeList,
+    func: "search",
+    animeSearch: animeName.animeName,
   };
 
   return (
@@ -24,4 +19,4 @@ const Animes = () => {
   );
 };
 
-export default Animes;
+export default AnimeSearch;

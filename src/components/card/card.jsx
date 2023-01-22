@@ -2,12 +2,12 @@ import classes from "./card.module.css";
 import { Link } from "react-router-dom";
 
 const Cards = ({ anime }) => {
+  console.log(anime.attributes.startDate);
   return (
     <>
       <Link
         to={`/anime/${anime.id}`}
         style={{ textDecoration: "none", color: "white" }}
-        data={anime}
       >
         <div className={classes.cards}>
           <img
@@ -19,10 +19,7 @@ const Cards = ({ anime }) => {
               {anime ? anime.attributes.canonicalTitle : ""}
             </div>
             <div className={classes.card__runtime}>
-              {anime ? anime.attributes.createdAt : ""}
-              <span className="card__rating">
-                {anime ? anime.attributes.averageRating : ""}
-              </span>
+              {anime ? anime.attributes.startDate.slice(0, 4) : ""}
             </div>
             <div className="card__description">
               {anime ? anime.attributes.synopsis.slice(0, 70) + "..." : ""}

@@ -58,6 +58,7 @@
 
 .card__rating {
   float: right;
+  margin-left: 2px;
 }
 
 .card__description {
