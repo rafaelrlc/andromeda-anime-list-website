@@ -1,11 +1,8 @@
 import React from "react";
-
 import classes from "./header.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { useRef } from "react";
-import api from "../../api/api";
 
 const Header = () => {
   const navigate = useNavigate();

@@ -28,7 +28,7 @@ const AnimeDetails = ({ id }) => {
         <meta charSet="utf-8" />
         <title>
           {detailedAnime
-            ? detailedAnime.attributes.canonicalTitle
+            ? detailedAnime.attributes.canonicalTitle + " - Andromeda.net"
             : "Loading..."}
         </title>
         <link rel="canonical" href="http://mysite.com/example" />
@@ -60,9 +60,15 @@ const AnimeDetails = ({ id }) => {
                   {detailedAnime ? detailedAnime.attributes.canonicalTitle : ""}
                 </h1>
               </div>
-              <p>{detailedAnime ? detailedAnime.attributes.createdAt : ""}</p>
+              <p className={classes.releaseDate}>
+                {detailedAnime
+                  ? detailedAnime.attributes.startDate.slice(0, 4)
+                  : ""}
+              </p>
               <h3>Synopsis</h3>
-              <p>{detailedAnime ? detailedAnime.attributes.synopsis : ""}</p>
+              <p className={classes.synopsis}>
+                {detailedAnime ? detailedAnime.attributes.synopsis : ""}
+              </p>
             </div>
           </div>
           <div className={classes.bottom_card}></div>

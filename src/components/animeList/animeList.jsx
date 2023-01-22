@@ -34,6 +34,7 @@ const AnimeList = ({ listingConfig }) => {
         params: fetchParams,
       });
       const data = response.data.data;
+      console.log(data);
       const n_pages = Math.round(response.data.meta.count / 20);
 
       setPageCount(n_pages);

@@ -1,10 +1,10 @@
 .header {
-  background-color: rgb(40, 86, 224);
+  background-color: rgb(42, 62, 120);
 
   display: flex;
   justify-content: space-between;
   font-family: Arial, Helvetica, sans-serif;
-  border-radius: 0rem;
+
   padding: 0.75rem;
 }
 
@@ -25,6 +25,8 @@
   font-size: 1.75rem;
   background-color: rgb(255, 255, 255);
   color: rgb(23, 61, 175);
+
+  font-weight: bold;
 }
 
 .header__icon {
@@ -46,6 +48,8 @@
 .options span {
   margin: 0;
   font-size: 1.1rem;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .headerLeft,
@@ -91,6 +95,12 @@ a > span:hover {
 .input_search input:hover,
 .input_search input:focus {
   background-color: rgb(216, 216, 216);
+}
+
+input::placeholder {
+  font-size: 15px;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 @media only screen and (max-width: 850px) {
