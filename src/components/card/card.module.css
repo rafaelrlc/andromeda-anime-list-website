@@ -10,7 +10,7 @@
   height: 365px;
   width: 255px;
   z-index: 0;
-
+  font-size: 0.85rem;
   color: white;
 }
 
@@ -52,8 +52,20 @@
 }
 
 .card__runtime {
+  display: flex;
+  align-items: center;
   font-size: 0.75rem;
   margin-bottom: 0.25rem;
+  justify-content: space-between;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating h5 {
+  font-size: 0.75rem;
 }
 
 .card__rating {
