@@ -11,3 +11,16 @@ body,
   background-color: rgb(31, 30, 30);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(46, 81, 187);
+  border-radius: 1rem;
+}

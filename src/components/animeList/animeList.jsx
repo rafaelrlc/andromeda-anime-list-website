@@ -7,7 +7,7 @@ import { Box } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Helmet } from "react-helmet";
-
+import SearchInput from "../searchInput";
 const AnimeList = ({ listingConfig }) => {
   const [animesDisplay, setAnimesDisplay] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +18,6 @@ const AnimeList = ({ listingConfig }) => {
     window.scrollTo(0, 0);
     setPage(value);
   };
-
   const fetchAnimes = async (limit, offset) => {
     let fetchParams = {
       "filter[text]": listingConfig?.animeSearch,
@@ -59,8 +58,10 @@ const AnimeList = ({ listingConfig }) => {
         <title>{listingConfig.title}</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <div className={classes.movie__list}>
+
+      <div className={classes.container}>
         <h2 className={classes.list__title}>ANIMES</h2>
+
         <ul className={classes.list__cards}>
           {isLoading && <CircularProgress />}
           {animesDisplay.map((anime) => (
@@ -87,6 +88,7 @@ const AnimeList = ({ listingConfig }) => {
                 borderRadius: "0.5rem",
                 backgroundColor: "white",
                 padding: "0.25rem",
+                margin: "0",
               }}
             />
           </Stack>

@@ -1,12 +1,12 @@
 import AnimeList from "../components/animeList/animeList";
 import { useParams } from "react-router-dom";
 
-const Animes = () => {
+const AnimesCategories = () => {
   const { type } = useParams();
 
   const listingConfig = {
     func: "listingParams",
-    type: "",
+    type: type,
     title: "Andromeda - Anime Website",
   };
 
@@ -17,4 +17,4 @@ const Animes = () => {
   );
 };
 
-export default Animes;
+export default AnimesCategories;

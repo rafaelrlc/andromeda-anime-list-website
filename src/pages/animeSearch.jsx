@@ -10,7 +10,7 @@ const AnimeSearch = () => {
   const listingConfig = {
     func: "search",
     animeSearch: animeName.animeName,
-    title: "Search All - Andromeda",
+    title: "Search All - Andromedaw",
   };
 
   return (
