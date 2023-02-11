@@ -37,7 +37,6 @@ const AnimeList = ({ listingConfig }) => {
       const data = response.data.data;
       console.log(data);
       const n_pages = Math.round(response.data.meta.count / 20);
-
       setPageCount(n_pages);
       setIsLoading(false);
       setAnimesDisplay(data);
